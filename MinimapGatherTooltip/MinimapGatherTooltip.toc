@@ -1,9 +1,9 @@
-## Interface: 16001, 16000, 11508, 11507, 11506, 11505, 11504, 11503, 11502, 11501, 11500, 11404, 30403, 40402, 50500, 110207, 120000, 120001, 120105
+## Interface: 16001
 ## Title: MinimapGatherTooltip
-## Notes: Replaces minimap gathering node tooltips with full item tooltips for Auctionator price display.
-## Version: 1.2.0
-## Author: Custom
-## IconTexture: Interface\Icons\INV_Misc_Herb_07
+## Notes: Vendor and auction prices for gathering icons on the minimap. Requires Auctionator. Follows Find Herbs and Find Minerals.
+## Version: 1.0.0
+## Author: MinimapGatherTooltip
 
 Database.lua
+Spawns.lua
 Core.lua
