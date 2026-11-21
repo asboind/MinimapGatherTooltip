@@ -1,5 +1,7 @@
 # MinimapGatherTooltip
 
+**Download:** [CurseForge](https://www.curseforge.com/wow/addons/minimapgathertooltip) · [Releases](https://github.com/asboind/MinimapGatherTooltip/releases)
+
 A **WoW Forever** addon (Interface `16001`) that shows vendor sell price and Auctionator auction price when you hover gathering nodes on the minimap.
 
 ![Example: Kingsblood with vendor and auction prices](docs/screenshot.png)
