@@ -1,9 +1,13 @@
 ## Interface: 16001
 ## Title: MinimapGatherTooltip
-## Notes: Vendor and auction prices for gathering icons on the minimap. Requires Auctionator. Follows Find Herbs and Find Minerals.
-## Version: 1.0.0
+## Notes: Vendor and auction prices for gathering icons on the minimap. Requires Auctionator. Uses GatherMate2_Data when installed. Follows Find Herbs and Find Minerals.
+## Version: 1.1.0
 ## Author: MinimapGatherTooltip
+## OptionalDeps: GatherMate2_Data, GatherMate2
+## SavedVariables: MinimapGatherTooltipDB
 
 Database.lua
+NodeMap.lua
 Spawns.lua
+SpawnData.lua
 Core.lua

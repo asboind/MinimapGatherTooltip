@@ -2,7 +2,7 @@
 
 **Download:** [CurseForge](https://www.curseforge.com/wow/addons/minimapgathertooltip) · [Releases](https://github.com/asboind/MinimapGatherTooltip/releases)
 
-A **WoW Forever** addon (Interface `16001`) that shows vendor sell price and Auctionator auction price when you hover gathering nodes on the minimap.
+A **WoW Forever** addon (Interface `16001`) that shows vendor sell price and Auctionator auction price when you hover gathering nodes on the minimap. This release is Forever only. A separate Retail package is planned later.
 
 ![Example: Kingsblood with vendor and auction prices](docs/screenshot.png)
 
@@ -17,6 +17,7 @@ A **WoW Forever** addon (Interface `16001`) that shows vendor sell price and Auc
 | Dependency | Purpose |
 |------------|---------|
 | [Auctionator](https://www.curseforge.com/wow/addons/auctionator) | Auction prices; this addon does not ship Auctionator’s database |
+| [GatherMate2](https://www.curseforge.com/wow/addons/gathermate2) and [GatherMate2_Data](https://www.curseforge.com/wow/addons/gathermate2_data) (recommended) | Live Forever herb and ore coordinates. Use **moonfann**’s GatherMate2_Data (**WoW Forever** file, red flower), plus GatherMate2 so the data addon can load. Marrtin’s classic data pack is not used. |
 | Gathering tracking | **Find Herbs** or **Find Minerals** enabled on the minimap |
 
 ## Installation
@@ -26,7 +27,8 @@ A **WoW Forever** addon (Interface `16001`) that shows vendor sell price and Auc
    - `MinimapGatherTooltip.toc`
    - `Core.lua`
    - `Database.lua`
-   - `Spawns.lua`
+   - `Spawns.lua` (embedded fallback coordinates)
+   - `NodeMap.lua`, `SpawnData.lua` (GatherMate integration)
 3. `/reload` or relog.
 
 ## Limitations
@@ -38,13 +40,13 @@ A **WoW Forever** addon (Interface `16001`) that shows vendor sell price and Auc
 ## How it works
 
 1. Cursor over the minimap with a single-line node tooltip (multi-line quest pins are skipped).
-2. Nearest gathering point on the current zone map from embedded `Spawns.lua`.
+2. Nearest gathering point on the current zone map. With **GatherMate2** and **GatherMate2_Data** enabled, coordinates are read from the Forever databases and cached in `MinimapGatherTooltipDB` until that data addon’s version changes. No `/gathermate` import is required. If either addon is missing, the embedded list in `Spawns.lua` is used.
 3. Tracking gate: herbs only with Find Herbs, ore only with Find Minerals.
 4. Prices from `C_Item` (vendor) and Auctionator’s API.
 
 ## Third-party data
 
-- Forever spawn coordinates in `Spawns.lua` are derived from [GatherMate2_Data](https://www.curseforge.com/wow/addons/gathermate2_data) (**forever** set; moonfann / Nevcairiel). See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+- At runtime, coordinates prefer [GatherMate2_Data (Retail & Forever)](https://www.curseforge.com/wow/addons/gathermate2_data) by moonfann / Nevcairiel, **WoW Forever** file. Embedded `Spawns.lua` is the fallback. See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 - Auctionator is a runtime dependency only; it is not bundled.
 
 ## License
@@ -55,4 +57,4 @@ The coordinate data in `Spawns.lua` is not original content; rights to the upstr
 
 ## Version
 
-See `MinimapGatherTooltip/MinimapGatherTooltip.toc` (currently **1.0.0**).
+See `MinimapGatherTooltip/MinimapGatherTooltip.toc` (currently **1.1.0**).
